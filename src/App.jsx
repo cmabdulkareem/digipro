@@ -7,15 +7,12 @@ function App() {
   const [downloadLink, setDownloadLink] = useState("");
 
   const handleConvert = () => {
-    const trimmedEmail = email.trim(); // Remove leading and trailing spaces
-    const convertedEmail = trimmedEmail.replace(/[^a-zA-Z0-9]/g, "_").replace(/\s+/g, "");
-    setButtonName("Link generated")
+    const trimmedEmail = email.trim().toLowerCase(); // Convert to lowercase & remove spaces
+    const convertedEmail = trimmedEmail.replace(/[^a-z0-9]/g, "_"); // Replace special chars with '_'
+    setButtonName("Link generated");
     setDownloadLink(convertedEmail);
   };
   
-  
-
-
   return (
     <>
       <div id="__next">
