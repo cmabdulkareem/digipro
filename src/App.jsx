@@ -1,17 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 function App() {
 
   const [email, setEmail] = useState("");
   const [buttonName, setButtonName] = useState("Get download link")
   const [downloadLink, setDownloadLink] = useState("");
+  const intervalRef = useRef(null); // To track the interval
+
 
   const handleConvert = () => {
-    const trimmedEmail = email.trim().toLowerCase(); // Convert to lowercase & remove spaces
-    const convertedEmail = trimmedEmail.replace(/[^a-z0-9]/g, "_"); // Replace special chars with '_'
-    setButtonName("Link generated");
-    setDownloadLink(convertedEmail);
+    const trimmedEmail = email.trim().toLowerCase();
+    const convertedEmail = trimmedEmail.replace(/[^a-z0-9]/g, "_");
+  
+    let countdown = 3;
+    setButtonName(`Link in ${countdown}...`);
+  
+    intervalRef.current = setInterval(() => {
+      countdown -= 1;
+      if (countdown > 0) {
+        setButtonName(`Link in ${countdown}...`);
+      } else {
+        clearInterval(intervalRef.current);
+        setButtonName("Link generated");
+        setDownloadLink(convertedEmail);
+      }
+    }, 1000);
   };
+  
+  useEffect(() => {
+    // Reset button and clear countdown when email changes
+    setButtonName('Generate Link');
+    setDownloadLink('');
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  }, [email]);
+  
   
   return (
     <>
@@ -63,7 +87,7 @@ function App() {
                       <h2 className="text-[30px] text-center text-white font-medium">Download Certificate</h2>
                       <div className="mt-4">
                         <p className="text-white mb-2">Registered Email ID</p>
-                        <input type="text" className="text-black block h-10 px-2 border border-theme-gray-100 bg-white shadow-sm focus:outline-none 
+                        <input type="email" className="text-black block h-10 px-2 border border-theme-gray-100 bg-white shadow-sm focus:outline-none 
             focus:ring-theme-red focus:border-theme-red sm:text-sm w-full"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
@@ -146,13 +170,13 @@ function App() {
                     <div className="border-2 border-[#39C1CD] p-5 relative bg-white lg:mt-24 mt-10"><img alt="launch"
                       title="launch" loading="lazy" width="100" height="400" decoding="async" data-nimg="1"
                       className="relative mt-[-70px] m-auto block" style={{ color: "transparent" }}
-                      src="https://synergysbs.com/assets/images/digipro/icons/offer.png" />
+                      src="/images/offer.png" />
                       <p className="text-[#134364] text-xl text-center font-semibold mt-3">Limited-Time Offer</p>
                       <p className="text-black text-md lg:w-[70%] m-auto leading-6 text-center mt-2">Register now to unlock these
                         exciting benefits!</p>
                     </div><img alt="launch" title="launch" loading="lazy" width="200" height="200" decoding="async"
                       data-nimg="1" className="m-auto absolute bottom-0 right-0 lg:w-[150px] w-[80px]"
-                      style={{ color: "transparent" }} src="https://synergysbs.com/assets/images/digipro/btrib.png" />
+                      style={{ color: "transparent" }} src="/images/btrib.png" />
                   </div>
                 </div>
               </div>
