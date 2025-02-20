@@ -165,7 +165,7 @@ function App() {
                     <div className="flex flex-col space-y-2 font-normal">
                       <div className="text-lg text-theme-red mb-[2px] text-white font-medium">For enquiries & supports
                       </div>
-                      <p className="text-white text-md font-normal">3rd Floor, Square 9 Mall,<br />Near New Bus
+                      <p className="text-white text-md font-normal">Synergy School for Business Skills <br></br>3rd Floor, Square 9 Mall,<br />Near New Bus
                         Stand<br />Kasaragod - 671 121, <br />Kerala, India.</p>
 
                     </div>
