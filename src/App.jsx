@@ -103,8 +103,6 @@ function App() {
                       {downloadLink ? (<p className='text-center mt-4 text-white block w-full'><a className='text-[#F58634]' href={`/cert/dipro/01/${downloadLink}.pdf`}>
                         <span>Click here to download</span>
                       </a></p>):(<></>)}
-                      
-
                     </div>
                   </div>
                   <div className="">
