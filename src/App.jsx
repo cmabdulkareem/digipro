@@ -5,8 +5,26 @@ function App() {
   const [email, setEmail] = useState("");
   const [buttonName, setButtonName] = useState("Get download link")
   const [downloadLink, setDownloadLink] = useState("");
-  const intervalRef = useRef(null); // To track the interval
+  const intervalRef = useRef(null);
+  const [isProcessing, setIsProcessing] = useState(null)
 
+
+  useEffect(() => {
+    const targetTime = new Date('2025-02-20T20:15:00+05:30'); // 8:04 PM IST
+    const now = new Date();
+    const timeDifference = targetTime - now;
+
+    if (timeDifference > 0) {
+      setIsProcessing(true);
+      const timer = setTimeout(() => {
+        setIsProcessing(false);
+      }, timeDifference);
+
+      return () => clearTimeout(timer);
+    } else {
+      setIsProcessing(false);
+    }
+  }, []);
 
   const handleConvert = () => {
     const trimmedEmail = email.trim().toLowerCase();
@@ -81,30 +99,51 @@ function App() {
                   valuable insights into digital marketing and <span className="text-[#DD6CA8] font-semibold">Generative
                     AI</span> to stay ahead in today’s competitive world.
                 </p>
-                <div id='downcert' className="grid lg:grid-cols-2 grid-cols-1 gap-20 mt-10">
-                  <div className="">
-                    <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
-                      <h2 className="text-[30px] text-center text-white font-medium">Download Certificate</h2>
-                      <div className="mt-4">
-                        <p className="text-white mb-2">Registered Email ID</p>
-                        <input type="email" className="text-black block h-10 px-2 border border-theme-gray-100 bg-white shadow-sm focus:outline-none 
-            focus:ring-theme-red focus:border-theme-red sm:text-sm w-full"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
 
-                          placeholder="Your registered email id here" />
-                      </div>
-                      <button
-                        onClick={handleConvert}
-                        type="button"
-                        className="bg-[#F58634] text-white font-light text-lg mt-6 block py-2 w-3/4 mx-auto flex items-center justify-center gap-3">
-                        <span>{buttonName}</span>
-                      </button>
-                      {downloadLink ? (<p className='text-center mt-4 text-white block w-full'><a className='text-[#F58634]' href={`/cert/dipro/01/${downloadLink}.pdf`}>
-                        <span>Click here to download</span>
-                      </a></p>):(<></>)}
-                    </div>
-                  </div>
+
+
+
+
+                <div id='downcert' className="grid lg:grid-cols-2 grid-cols-1 gap-20 mt-10">
+
+                {isProcessing ? (
+  <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
+    <h2 className="text-[30px] text-center text-white font-medium">Preparing Your Certificate...</h2>
+    <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!</p>
+  </div>
+) : (
+  <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
+    <h2 className="text-[30px] text-center text-white font-medium">Download Certificate</h2>
+    <div className="mt-4">
+      <p className="text-white mb-2">Registered Email ID</p>
+      <input
+        type="email"
+        className="text-black block h-10 px-2 border border-theme-gray-100 bg-white shadow-sm focus:outline-none focus:ring-theme-red focus:border-theme-red sm:text-sm w-full"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Your registered email id here"
+      />
+    </div>
+    <button
+      onClick={handleConvert}
+      type="button"
+      className="bg-[#F58634] text-white font-light text-lg mt-6 block py-2 w-3/4 mx-auto flex items-center justify-center gap-3"
+    >
+      <span>{buttonName}</span>
+    </button>
+    {downloadLink && (
+      <p className="text-center mt-4 text-white block w-full">
+        <a className="text-[#F58634]" href={`/cert/dipro/01/${downloadLink}.pdf`}>
+          <span>Click here to download</span>
+        </a>
+      </p>
+    )}
+  </div>
+)}
+
+
+
+                  
                   <div className="">
                     <h2 className="text-2xl font-semibold text-[#35A99E]">Event Highlights</h2>
                     <div className="flex gap-4 mt-5 items-center"><img alt="image" loading="lazy" width="80" height="86"
@@ -189,7 +228,6 @@ function App() {
                       </div>
                       <p className="text-white text-md font-normal">Synergy School for Business Skills <br></br>3rd Floor, Square 9 Mall,<br />Near New Bus
                         Stand<br />Kasaragod - 671 121, <br />Kerala, India.</p>
-
                     </div>
                   </div>
                   <div className="lg:mt-0 mt-6 lg:pl-10">
