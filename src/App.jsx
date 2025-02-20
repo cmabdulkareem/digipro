@@ -34,7 +34,7 @@ function App() {
                             <div className="lg:block hidden">
                               <p
                                 className=" group transition-all duration-300 ease-in-out cursor-pointer text-[#1E1E1E] hover:text-black text-[16px] font-normal">
-                                <a href="#" className="bg-left-bottom bg-gradient-to-r from-[#134364] to-[#134364] bg-[length:0%_2px] bg-mb-10 bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out text-white 
+                                <a href="#downcert" className="bg-left-bottom bg-gradient-to-r from-[#134364] to-[#134364] bg-[length:0%_2px] bg-mb-10 bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out text-white 
                                           hover:text-[#F48632] font-medium
                                           ">Download Certificate</a>
                               </p>
@@ -57,7 +57,7 @@ function App() {
                   valuable insights into digital marketing and <span className="text-[#DD6CA8] font-semibold">Generative
                     AI</span> to stay ahead in today’s competitive world.
                 </p>
-                <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 mt-10">
+                <div id='downcert' className="grid lg:grid-cols-2 grid-cols-1 gap-20 mt-10">
                   <div className="">
                     <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
                       <h2 className="text-[30px] text-center text-white font-medium">Download Certificate</h2>
