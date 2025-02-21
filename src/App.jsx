@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
+
 function App() {
 
   const [email, setEmail] = useState("");
@@ -103,6 +104,7 @@ function App() {
                     <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
                       <h2 className="text-[30px] text-center text-white font-medium">Preparing Your Certificate...</h2>
                       <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!</p>
+                      <img src="/images/loading.svg" alt="" style={{ width: '50%', display: 'block', margin: '0 auto' }} />
                     </div>
                   ) : (
                     <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
