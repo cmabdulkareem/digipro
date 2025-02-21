@@ -8,7 +8,6 @@ function App() {
   const intervalRef = useRef(null);
   const [isProcessing, setIsProcessing] = useState(null)
 
-
   useEffect(() => {
     const targetTime = new Date('2025-02-20T20:15:00+05:30'); // 8:04 PM IST
     const now = new Date();
