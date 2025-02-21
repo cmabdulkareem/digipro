@@ -9,7 +9,7 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(null)
 
   useEffect(() => {
-    const targetTime = new Date('2025-02-21T15:45:00+05:30'); 
+    const targetTime = new Date('2025-02-22T15:45:00+05:30');
     const now = new Date();
     const timeDifference = targetTime - now;
 
@@ -28,10 +28,10 @@ function App() {
   const handleConvert = () => {
     const trimmedEmail = email.trim().toLowerCase();
     const convertedEmail = trimmedEmail.replace(/[^a-z0-9]/g, "_");
-  
+
     let countdown = 3;
     setButtonName(`Link in ${countdown}...`);
-  
+
     intervalRef.current = setInterval(() => {
       countdown -= 1;
       if (countdown > 0) {
@@ -43,7 +43,7 @@ function App() {
       }
     }, 1000);
   };
-  
+
   useEffect(() => {
     // Reset button and clear countdown when email changes
     setButtonName('Generate Link');
@@ -52,8 +52,8 @@ function App() {
       clearInterval(intervalRef.current);
     }
   }, [email]);
-  
-  
+
+
   return (
     <>
       <div id="__next">
@@ -98,51 +98,46 @@ function App() {
                   valuable insights into digital marketing and <span className="text-[#DD6CA8] font-semibold">Generative
                     AI</span> to stay ahead in today’s competitive world.
                 </p>
-
-
-
-
-
                 <div id='downcert' className="grid lg:grid-cols-2 grid-cols-1 gap-20 mt-10">
-
-                {isProcessing ? (
-  <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
-    <h2 className="text-[30px] text-center text-white font-medium">Preparing Your Certificate...</h2>
-    <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!</p>
-  </div>
-) : (
-  <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
-    <h2 className="text-[30px] text-center text-white font-medium">Download Certificate</h2>
-    <div className="mt-4">
-      <p className="text-white mb-2">Registered Email ID</p>
-      <input
-        type="email"
-        className="text-black block h-10 px-2 border border-theme-gray-100 bg-white shadow-sm focus:outline-none focus:ring-theme-red focus:border-theme-red sm:text-sm w-full"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Your registered email id here"
-      />
-    </div>
-    <button
-      onClick={handleConvert}
-      type="button"
-      className="bg-[#F58634] text-white font-light text-lg mt-6 block py-2 w-3/4 mx-auto flex items-center justify-center gap-3"
-    >
-      <span>{buttonName}</span>
-    </button>
-    {downloadLink && (
-      <p className="text-center mt-4 text-white block w-full">
-        <a className="text-[#F58634]" href={`/cert/dipro/01/${downloadLink}.pdf`}>
-          <span>Click here to download</span>
-        </a>
-      </p>
-    )}
-  </div>
-)}
-
-
-
-                  
+                  {isProcessing ? (
+                    <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
+                      <h2 className="text-[30px] text-center text-white font-medium">Preparing Your Certificate...</h2>
+                      <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!</p>
+                    </div>
+                  ) : (
+                    <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
+                      <h2 className="text-[30px] text-center text-white font-medium">Download Certificate</h2>
+                      <div className="mt-4">
+                        <p className="text-white mb-2">Registered Email ID</p>
+                        <input
+                          type="email"
+                          className="text-black block h-10 px-2 border border-theme-gray-100 bg-white shadow-sm focus:outline-none focus:ring-theme-red focus:border-theme-red sm:text-sm w-full"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="Your registered email id here"
+                        />
+                      </div>
+                      <button
+                        onClick={handleConvert}
+                        type="button"
+                        className="bg-[#F58634] text-white font-light text-lg mt-6 block py-2 w-3/4 mx-auto flex items-center justify-center gap-3"
+                      >
+                        <span>{buttonName}</span>
+                      </button>
+                      {downloadLink && (
+                        <p className="text-center mt-4 text-white block w-full">
+                          <a className="text-[#F58634]" href={`/cert/dipro/01/${downloadLink}.pdf`}>
+                            <span>Click here to download</span>
+                          </a>
+                        </p>
+                      )}
+                      <p className="text-center mt-4 text-white block w-full">
+                        <a href="#" className="text-white hover:text-green-500 no-underline">
+                          <span>or click here to request certificate</span>
+                        </a>
+                      </p>
+                    </div>
+                  )}
                   <div className="">
                     <h2 className="text-2xl font-semibold text-[#35A99E]">Event Highlights</h2>
                     <div className="flex gap-4 mt-5 items-center"><img alt="image" loading="lazy" width="80" height="86"
@@ -170,11 +165,9 @@ function App() {
                 </div>
               </div>
             </div>
-
             <div className="w-auto"><a href="#register"><img alt="Dream Quest 2025" title="Dream Quest 2025" loading="lazy"
               width="1920" height="477" decoding="async" data-nimg="1" className="md:block hidden"
               style={{ color: "transparent" }} src="/images/banner.jpg" /></a>
-
               <div
                 className="bg-[url(/images/launchbg.png)] no-repeat bg-cover bg-center; pt-10 pb-16 mt-5 relative">
                 <div className="md:max-w-[1440px] m-auto md:px-24 px-6"><img alt="launch" title="launch" loading="lazy"
