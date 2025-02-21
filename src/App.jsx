@@ -103,8 +103,16 @@ function App() {
                   {isProcessing ? (
                     <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
                       <h2 className="text-[30px] text-center text-white font-medium">Preparing Your Certificate...</h2>
-                      <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!</p>
-                      <img src="/images/loading.svg" alt="" style={{ width: '50%', display: 'block', margin: '0 auto' }} />
+                      <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!<br></br>
+                      
+                      Watch this video to learn more about Digital Marketing in 2025!<br></br>
+                      </p>
+                      <video width="50%" style={{ display: 'block', margin: '0 auto' }} controls autoPlay loop muted>
+                        <source src="/images/digipro.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+
+
                     </div>
                   ) : (
                     <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
