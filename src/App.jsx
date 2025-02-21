@@ -107,7 +107,7 @@ function App() {
                       
                       Watch this video to learn more about Digital Marketing in 2025!<br></br>
                       </p>
-                      <video width="50%" style={{ display: 'block', margin: '0 auto' }} controls autoPlay loop muted>
+                      <video width="75%" style={{ display: 'block', margin: '0 auto' }} controls autoPlay loop muted>
                         <source src="/images/digipro.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
