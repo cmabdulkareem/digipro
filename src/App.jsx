@@ -142,7 +142,7 @@ function App() {
                         </p>
                       )}
                       <p className="text-center mt-4 text-white block w-full">
-                        <a href="#" className="text-white hover:text-green-500 no-underline">
+                        <a href="https://wa.me/919947211198" className="text-white hover:text-green-500 no-underline">
                           <span>or click here to request certificate</span>
                         </a>
                       </p>
