@@ -102,7 +102,7 @@ function App() {
                 <div id='downcert' className="grid lg:grid-cols-2 grid-cols-1 gap-20 mt-10">
                   {isProcessing ? (
                     <div className="bg-[#1A3F59] lg:w-full px-6 py-9">
-                      <h2 className="text-[30px] text-center text-white font-medium">Preparing Your Certificate...</h2>
+                      <h2 className="text-[30px] text-center text-white font-medium">We are almost there...</h2>
                       <p className="text-white mt-4 text-center">We are busy preparing your certificate. Please wait!<br></br>
                       
                       Watch this video to learn more about Digital Marketing in 2025!<br></br>
