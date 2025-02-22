@@ -10,7 +10,7 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(null)
 
   useEffect(() => {
-    const targetTime = new Date('2025-02-22T17:20:00+05:30');
+    const targetTime = new Date('2025-02-22T17:25:00+05:30');
     const now = new Date();
     const timeDifference = targetTime - now;
 
